@@ -1,0 +1,21 @@
+# Node modules
+backend/node_modules/
+frontend/node_modules/
+
+# Environment files
+backend/.env
+frontend/.env.local
+
+# Build output
+backend/dist/
+frontend/.next/
+frontend/out/git reset HEAD .
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE / OS files
+.vscode/
+.DS_Store

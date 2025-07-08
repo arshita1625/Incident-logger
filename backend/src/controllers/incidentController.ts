@@ -29,7 +29,7 @@ export async function summarizeIncident(req: Request, res: Response) {
     ]
   });
   const summary = response.choices[0].message.content;
-  incident.summary = summary;
+  incident.summary = summary || "";
   await incident.save();
   return res.json({ summary });
 }
