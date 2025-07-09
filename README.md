@@ -92,6 +92,9 @@ npm run docker:test
 ---
 ![backend](./assets/backend.png)
 ![frontend](./assets/frontend.png)
+![UI](./assets/Login.png)
+![UI](./assets/Logger.png)
+![UI](./assets/List.png)
 ## 💬 Common Issues
 
 ### 🐘 Postgres Connection Refused?

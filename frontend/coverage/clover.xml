@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1752083400418" clover="3.2.0">
-  <project timestamp="1752083400418" name="All files">
+<coverage generated="1752084490922" clover="3.2.0">
+  <project timestamp="1752084490922" name="All files">
     <metrics statements="39" coveredstatements="36" conditionals="18" coveredconditionals="14" methods="13" coveredmethods="13" elements="70" coveredelements="63" complexity="0" loc="39" ncloc="39" packages="1" files="3" classes="3"/>
-    <file name="IncidentForm.tsx" path="/Users/arshitakaur/Downloads/incident-logger/frontend/components/IncidentForm.tsx">
+    <file name="IncidentForm.tsx" path="/app/components/IncidentForm.tsx">
       <metrics statements="15" coveredstatements="14" conditionals="6" coveredconditionals="5" methods="4" coveredmethods="4"/>
       <line num="11" count="6" type="stmt"/>
       <line num="12" count="6" type="stmt"/>
@@ -20,7 +20,7 @@
       <line num="39" count="1" type="stmt"/>
       <line num="47" count="1" type="stmt"/>
     </file>
-    <file name="IncidentList.tsx" path="/Users/arshitakaur/Downloads/incident-logger/frontend/components/IncidentList.tsx">
+    <file name="IncidentList.tsx" path="/app/components/IncidentList.tsx">
       <metrics statements="23" coveredstatements="21" conditionals="12" coveredconditionals="9" methods="8" coveredmethods="8"/>
       <line num="18" count="5" type="stmt"/>
       <line num="19" count="5" type="stmt"/>
@@ -46,7 +46,7 @@
       <line num="60" count="3" type="stmt"/>
       <line num="64" count="1" type="stmt"/>
     </file>
-    <file name="Loader.tsx" path="/Users/arshitakaur/Downloads/incident-logger/frontend/components/Loader.tsx">
+    <file name="Loader.tsx" path="/app/components/Loader.tsx">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="3" count="3" type="stmt"/>
     </file>
