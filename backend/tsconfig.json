@@ -5,7 +5,15 @@
     "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": [
+      "jest",
+      "node"
+    ]
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "__tests__",
+    "jest.setup.ts"
+  ]
 }

@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest --config jest.config.js --coverage"
   },
   "dependencies": {
     "firebase": "^9.23.0",
@@ -14,10 +15,19 @@
     "react-icons": "^5.5.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
     "@types/react": "19.1.8",
+    "@types/supertest": "^6.0.3",
     "autoprefixer": "^10.4.14",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^30.0.4",
+    "jest-environment-jsdom": "^30.0.4",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.4.7",
+    "ts-jest": "^29.4.0",
     "typescript": "^5.1.3"
   }
 }

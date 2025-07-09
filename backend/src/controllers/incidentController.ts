@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import { Incident } from '../models/incident';
 import { OpenAI } from 'openai';
-
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
+const apiKey = process.env.OPENAI_API_KEY || 'test‐key';
+export const openai = new OpenAI({ apiKey });
+// const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 export async function createIncident(req: Request, res: Response) {
   const { type, description } = req.body;
   const userId = (req as any).uid;
