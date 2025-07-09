@@ -86,13 +86,12 @@ docker compose down -v --remove-orphans
 ```bash
 cd incident-logger
 npm run docker:test
-![backend](/assets/backend.png)
-![frontend](./assets/frontend.png)
 
 > 📈 Generates code coverage reports too.
 
 ---
-
+![backend](./assets/backend.png)
+![frontend](./assets/frontend.png)
 ## 💬 Common Issues
 
 ### 🐘 Postgres Connection Refused?
