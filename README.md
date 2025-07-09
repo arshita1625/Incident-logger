@@ -20,7 +20,7 @@ This is a full-stack application to log, view, and summarize incidents using AI.
 ### 📦 1. Clone the Repo
 
 ```bash
-git clone https://github.com/your-username/incident-logger.git
+git clone https://github.com/arshita1625/incident-logger.git
 cd incident-logger
 ```
 
@@ -55,8 +55,6 @@ FIREBASE_PROJECT_ID=your-firebase-id
 FIREBASE_CLIENT_EMAIL=your-client-email
 FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----\nABC...\n-----END PRIVATE KEY-----\n
 ```
-
-> 🔐 For `FIREBASE_PRIVATE_KEY`, be sure to escape newlines (`\n`) properly or wrap it in quotes.
 
 ---
 
