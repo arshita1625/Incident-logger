@@ -3,7 +3,7 @@ services:
     image: postgres:15
     container_name: incident-logger-db
     ports:
-      - '5433:5432'
+      - '5432:5432'
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -19,7 +19,7 @@ services:
     command: npm run dev
     working_dir: /app
     env_file:
-      - ./backend/.env.docker
+      - ./backend/.env
     volumes:
       - ./backend:/app
       - /app/node_modules
