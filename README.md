@@ -33,7 +33,11 @@ Ensure these environment files exist and are filled:
 #### `frontend/.env.local`
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:4000
+NEXT_PUBLIC_API_URL=http://localhost:4000/api
+NEXT_PUBLIC_FIREBASE_API_KEY=your-firebase-api-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-app.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-firebase-project-id
+
 ```
 
 #### `backend/.env`
@@ -82,7 +86,9 @@ docker compose down -v --remove-orphans
 ```bash
 cd incident-logger
 npm run docker:test
-```
+```![backend](https://github.com/user-attachments/assets/4a852130-0c44-4eda-936d-3fcf94e71c62)
+
+
 
 > 📈 Generates code coverage reports too.
 
