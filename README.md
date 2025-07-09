@@ -80,7 +80,11 @@ docker compose down -v --remove-orphans
 ---
 
 ## 🧪 Running Tests
-
+![backend](./assets/backend.png)
+![frontend](./assets/frontend.png)
+![UI](./assets/Login.png)
+![UI](./assets/Logger.png)
+![UI](./assets/List.png)
 ### 📁 Backend & Frontend Tests
 
 ```bash
@@ -90,11 +94,6 @@ npm run docker:test
 > 📈 Generates code coverage reports too.
 
 ---
-![backend](./assets/backend.png)
-![frontend](./assets/frontend.png)
-![UI](./assets/Login.png)
-![UI](./assets/Logger.png)
-![UI](./assets/List.png)
 ## 💬 Common Issues
 
 ### 🐘 Postgres Connection Refused?
