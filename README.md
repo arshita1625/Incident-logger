@@ -1,51 +1,112 @@
-# Incident Logger
+# 🚀 Incident Logger App
 
-## Overview
-Lightweight incident logging and summarization tool.
+This is a full-stack application to log, view, and summarize incidents using AI. It uses:
 
-## Tech Stack
-- Backend: Node.js + Express (TypeScript)
-- Database: PostgreSQL + Sequelize
-- Auth: Firebase Authentication
-- Summaries: OpenAI GPT-3.5
-- Frontend: Next.js + React + TypeScript + Tailwind
-- Testing: Jest
+- **Frontend:** Next.js + TypeScript  
+- **Backend:** Express.js + TypeScript  
+- **Database:** PostgreSQL  
+- **AI Integration:** OpenAI API for summaries  
 
-## Setup
+---
 
-### 1. Clone Repo
+## 🐳 Getting Started with Docker (Recommended)
+
+### ✅ Prerequisites
+
+- Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) for your OS.
+
+---
+
+### 📦 1. Clone the Repo
+
 ```bash
-git clone <repo-url>
+git clone https://github.com/your-username/incident-logger.git
 cd incident-logger
 ```
 
-### 2. Backend
-```bash
-cd backend
-cp .env.example .env
-npm install
-npm run dev
+---
+
+### ⚙️ 2. Environment Setup
+
+Ensure these environment files exist and are filled:
+
+#### `frontend/.env.local`
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:4000
 ```
 
-### 3. Frontend
-```bash
-cd ../frontend
-cp .env.local.example .env.local
-npm install
-npm run dev
+#### `backend/.env`
+
+```env
+PORT=4000
+DB_HOST=db
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_NAME=incidentdb
+OPENAI_API_KEY=your-openai-key-here
+
+FIREBASE_PROJECT_ID=your-firebase-id
+FIREBASE_CLIENT_EMAIL=your-client-email
+FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----\nABC...\n-----END PRIVATE KEY-----\n
 ```
 
-### 4. Tests
+> 🔐 For `FIREBASE_PRIVATE_KEY`, be sure to escape newlines (`\n`) properly or wrap it in quotes.
+
+---
+
+### 🐋 3. Run the Full App
+
 ```bash
-cd backend
-npm test
+docker compose up --build
 ```
 
-## Firebase Setup
-1. Create a Firebase project
-2. Enable Authentication (Google)
-3. Download service account JSON and fill in `.env`
+Wait for:
 
-## Notes
-- Ensure PostgreSQL is running and DATABASE_URL is correct.
-- For Docker bonus, you can add Dockerfiles separately.
+- Frontend → `http://localhost:3000`
+- Backend → `http://localhost:4000`
+
+To stop everything:
+
+```bash
+docker compose down -v --remove-orphans
+```
+
+---
+
+## 🧪 Running Tests
+
+### 📁 Backend & Frontend Tests
+
+```bash
+cd incident-logger
+npm run docker:test
+```
+
+> 📈 Generates code coverage reports too.
+
+---
+
+## 💬 Common Issues
+
+### 🐘 Postgres Connection Refused?
+
+Run:
+
+```bash
+docker compose down -v --remove-orphans
+docker compose up --build
+```
+
+---
+
+## 🛠 Troubleshooting
+
+If you get stuck, try:
+
+- `npm install` inside `frontend/` and `backend/`
+- Check `.env` files are correctly configured
+- Make sure Docker Desktop is **running**
+
+---
