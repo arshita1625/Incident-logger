@@ -20,7 +20,7 @@ This is a full-stack application to log, view, and summarize incidents using AI.
 ### 📦 1. Clone the Repo
 
 ```bash
-git clone https://github.com/arshita1625/incident-logger.git
+git clone https://github.com/arshita1625/Incident-logger.git
 cd incident-logger
 ```
 
