@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:15
+    container_name: incident-logger-db
+    ports:
+      - '5433:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: incidentdb
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: incident-logger-backend
+    command: npm run dev
+    working_dir: /app
+    env_file:
+      - ./backend/.env.docker
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    ports:
+      - '4000:4000'
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: incident-logger-frontend
+    command: npm run dev
+    working_dir: /app
+    env_file:
+      - ./frontend/.env.local
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - '3000:3000'
+
+volumes:
+  db_data:

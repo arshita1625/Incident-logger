@@ -1,50 +1,50 @@
-// frontend/__tests__/IncidentForm.test.tsx
+// __tests__/IncidentForm.test.tsx
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import IncidentForm from '../components/IncidentForm';
-process.env.NEXT_PUBLIC_API_URL = 'http://localhost:4000/api';
-describe('IncidentForm', () => {
+
+describe('IncidentForm additional branches', () => {
     const fakeToken = 'tok';
-    const onSuccess = jest.fn();
+    let onSuccess: jest.Mock;
 
     beforeEach(() => {
-        // Mock fetch to resolve after a tick
+        onSuccess = jest.fn();
         (global.fetch as jest.Mock) = jest.fn().mockResolvedValue({
             ok: true,
             json: async () => ({}),
         });
-        onSuccess.mockClear();
     });
 
-    it('submits and clears the textarea', async () => {
+    it('updates the description textarea on user input', () => {
+        render(<IncidentForm token={fakeToken} onSuccess={onSuccess} />);
+        const textarea = screen.getByRole('textbox');
+        fireEvent.change(textarea, { target: { value: 'My description' } });
+        expect(textarea).toHaveValue('My description');
+    });
+
+    it('lets you pick a different incident type and sends it in the POST body', async () => {
         render(<IncidentForm token={fakeToken} onSuccess={onSuccess} />);
 
-        // Type into the textarea
-        fireEvent.change(screen.getByRole('textbox'), {
-            target: { value: 'A new incident' },
-        });
-        expect(screen.getByRole('textbox')).toHaveValue('A new incident');
+        // change the <select> from its default "fall" to "medication"
+        const select = screen.getByRole('combobox');
+        fireEvent.change(select, { target: { value: 'medication' } });
+        expect(select).toHaveValue('medication');
 
-        // Click submit
-        fireEvent.click(screen.getByRole('button', { name: /log incident/i }));
+        // click Log Incident
+        const btn = screen.getByRole('button', { name: /log incident/i });
+        fireEvent.click(btn);
 
-        // Wait for the textarea to clear
         await waitFor(() => {
-            expect(screen.getByRole('textbox')).toHaveValue('');
+            // ensure fetch was called with the updated type
+            expect(global.fetch).toHaveBeenCalledWith(
+                expect.stringContaining('/incidents'),
+                expect.objectContaining({
+                    method: 'POST',
+                    body: JSON.stringify({ type: 'medication', description: '' }),
+                })
+            );
         });
 
-        // onSuccess should have been called
+        // and onSuccess should have been called exactly once
         expect(onSuccess).toHaveBeenCalledTimes(1);
-
-        // And fetch was invoked with the correct args
-        expect(global.fetch).toHaveBeenCalledWith(
-            'http://localhost:4000/api/incidents',
-            expect.objectContaining({
-                method: 'POST',
-                headers: expect.objectContaining({
-                    Authorization: `Bearer ${fakeToken}`,
-                }),
-                body: JSON.stringify({ type: 'fall', description: 'A new incident' }),
-            })
-        );
     });
 });

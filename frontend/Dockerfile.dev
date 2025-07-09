@@ -1,0 +1,14 @@
+# frontend/Dockerfile.dev
+FROM node:18-alpine
+
+WORKDIR /app
+
+# install deps
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# copy the rest of your source
+COPY . .
+
+# Next.js uses 3000 by default
+EXPOSE 3000

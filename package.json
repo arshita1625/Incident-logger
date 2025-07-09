@@ -2,7 +2,8 @@
   "scripts": {
     "test:backend": "cd backend && npm test",
     "test:frontend": "cd frontend && npm test",
-    "test": "npm run test:backend && npm run test:frontend"
+    "test": "npm run test:backend && npm run test:frontend",
+    "docker:test": "docker compose up -d db && docker compose run --rm backend npm test && docker compose run --rm -e NEXT_PUBLIC_API_URL=http://backend:4000/api frontend npm test"
   },
   "dependencies": {
     "npm-run-all": "^4.1.5"

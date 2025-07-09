@@ -1,0 +1,14 @@
+# backend/Dockerfile.dev
+FROM node:18-alpine
+
+WORKDIR /app
+
+# install deps
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# copy everything else
+COPY . .
+
+# expose the port your express listens on
+EXPOSE 4000
